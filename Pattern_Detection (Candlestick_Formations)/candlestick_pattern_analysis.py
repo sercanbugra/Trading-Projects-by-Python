@@ -9,8 +9,8 @@ import time
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
-mytickerlist= ["SOUN","NVDA","MU","HOLO","ETN","DELL","GLW","CVX",
-               "AVGO","BABA","AMD","SNPS","GME","CEG","LLY"
+mytickerlist= ["NVDA","MU","HOLO","ETN","DELL","SMCI","DECK","KTRA","RGF"
+               "AVGO","LLY"
 ]
 
 
@@ -84,7 +84,7 @@ patterns = {
 # Function to analyze stock data
 def analyze_stock(stock, output_dir):
     try:
-        data = yf.download(stock, period='1mo', interval='4h')  
+        data = yf.download(stock, period='5d', interval='1h')  
     except Exception as e:
         print(f"Error downloading data for {stock}: {e}")
         return []
