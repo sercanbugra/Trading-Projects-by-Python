@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Chart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Chart Viewer</h1>
+        <form method="POST">
+            <div>
+                <label for="ticker">Ticker Symbol:</label>
+                <input type="text" id="ticker" name="ticker" required>
+            </div>
+            <div>
+                <label for="period">Period:</label>
+                <select id="period" name="period" required>
+                    <option value="1d">1 Day</option>
+                    
+                    <option value="1mo">1 Month</option>
+                    <option value="3mo">3 Months</option>
+                    
+                    <option value="1y">1 Year</option>
+                    
+                    <option value="10y">10 Years</option>
+                    <option value="ytd">Year to Date</option>
+                    <option value="max">Max</option>
+                </select>
+            </div>
+            <button type="submit">Get Chart</button>
+        </form>
+        {% if chart %}
+            <h2>Stock Chart for {{ ticker }} ({{ period }})</h2>
+            <img src="data:image/png;base64,{{ chart }}" alt="Stock Chart">
+        {% endif %}
+    </div>
+</body>
+</html>
