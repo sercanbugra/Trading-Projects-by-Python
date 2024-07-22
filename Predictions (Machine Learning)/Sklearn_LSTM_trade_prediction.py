@@ -81,6 +81,8 @@ predictions = scaler.inverse_transform(predictions)
 rmse = np.sqrt(np.mean(((predictions - y_test) ** 2)))
 print('RMSE: ', rmse)
 
+model.save('LSTM_sercan.h5')
+
 # Predict the next 10 days
 last_60_days = scaled_data[-60:]
 next_10_days = []
