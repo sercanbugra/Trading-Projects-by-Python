@@ -38,7 +38,7 @@ def main():
     end_date = st.sidebar.date_input('Select End Date:', datetime.now())
 
     # Model selection
-    selected_model = st.sidebar.radio("Select Model", ("Neural Network", "Random Forest"))
+    selected_model = st.sidebar.radio("Select Model", ("Neural Network", "Random Forest" , "LSTM Model"))
 
     # Load stock data
     if stock_symbol:
@@ -93,6 +93,9 @@ def main():
             elif selected_model == "Random Forest":
                 model_url = "https://github.com/rajdeepUWE/stock_market_forecast/raw/master/random_forest_model.h5"
                 model_filename = "random_forest_model.h5"
+            elif selected_model == "LSTM Model":
+                model_url = "https://github.com/sercanbugra/Trading-Projects-by-Python/blob/main/Predictions%20(Machine%20Learning)/LSTM_sercan.h5"
+                model_filename = "LSTM_sercan.h5"
 
             # Download model file
             download_model(model_url, model_filename)
